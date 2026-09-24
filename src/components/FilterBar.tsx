@@ -15,6 +15,7 @@ import {
   Globe,
   MapPin,
   CircleDot,
+  Calendar,
 } from 'lucide-react';
 
 interface FilterBarProps {
@@ -247,6 +248,37 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
       )}
 
+      {/* Quick Timeframe Chips */}
+      <div className="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none border-t border-slate-800/80 pt-2.5">
+        <span className="text-[11px] font-medium text-slate-400 shrink-0 flex items-center gap-1 mr-1">
+          <Calendar className="w-3.5 h-3.5 text-amber-400" />
+          Timeframe:
+        </span>
+        {[
+          { label: '7 Days', value: 7 },
+          { label: '14 Days', value: 14 },
+          { label: '30 Days', value: 30 },
+          { label: '60 Days', value: 60 },
+          { label: '90 Days', value: 90 },
+          { label: '180 Days', value: 180 },
+          { label: '1 Year', value: 365 },
+          { label: 'All Records', value: 0 },
+        ].map((item) => (
+          <button
+            key={item.value}
+            type="button"
+            onClick={() => onChange({ ...filters, daysRange: item.value })}
+            className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition cursor-pointer ${
+              filters.daysRange === item.value
+                ? 'bg-amber-500 text-slate-950 font-semibold shadow-sm'
+                : 'bg-slate-800/90 text-slate-300 hover:text-white hover:bg-slate-700 border border-slate-700/80'
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+
       {/* Filter Selectors */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-2.5 pt-1 border-t border-slate-800/80">
         {/* Timeframe Selector */}
@@ -262,6 +294,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             }
             className="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-md px-2.5 py-1.5 focus:outline-none focus:border-amber-500"
           >
+            <option value={7}>Last 7 Days (Past Week)</option>
+            <option value={14}>Last 14 Days (Past 2 Weeks)</option>
             <option value={30}>Last 30 Days</option>
             <option value={60}>Last 60 Days</option>
             <option value={90}>Last 90 Days (Default)</option>

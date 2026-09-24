@@ -133,6 +133,8 @@ export const ScraperModal: React.FC<ScraperModalProps> = ({
                   onChange={(e) => setScrapeDays(Number(e.target.value))}
                   className="bg-slate-900 border border-slate-700 text-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:border-amber-500"
                 >
+                  <option value={7}>Last 7 Days (Fastest)</option>
+                  <option value={14}>Last 14 Days (Past 2 Weeks)</option>
                   <option value={30}>Last 30 Days</option>
                   <option value={60}>Last 60 Days</option>
                   <option value={90}>Last 90 Days (Recommended)</option>

@@ -50,7 +50,7 @@ export interface RadiusFilter {
 
 export interface FilterOptions {
   searchQuery: string;
-  daysRange: number; // 30, 60, 90, 180, 365, or 0 for all
+  daysRange: number; // 7, 14, 30, 60, 90, 180, 365, or 0 for all
   neighborhood: string;
   contractor: string;
   demolitionClass: string;

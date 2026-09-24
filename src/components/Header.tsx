@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({
               </span>
             </div>
             <p className="text-xs text-slate-400 truncate">
-              Last 90 days issued &bull; Accela Civic Platform sync &bull; FOSS maps & street view
+              Accela Civic Platform sync &bull; FOSS maps & street view &bull; 7 to 365 day filters
             </p>
           </div>
         </div>
